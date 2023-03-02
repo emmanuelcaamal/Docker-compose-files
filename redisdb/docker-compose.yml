@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  redis:
+    image: redis
+    container_name: redisdb
+    ports:
+      - "6379:6379"
+
+
+#Access to the container
+#docker exec -it {container_id} /bin/bash
+
+#For access to redis command line
+#docker exec -it {container_id} redis-cli
+
+#For service validate
+#ping --> PONG
+
+#For Set a data
+#Set <key> <somevalue>
+
+#For Get value of data
+#Get <key>
+
+#For Delete a data
+#Del <key>
+

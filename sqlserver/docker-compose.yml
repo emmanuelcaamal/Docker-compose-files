@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server
+    container_name: "mssqlserver"
+    restart: always
+    ports:
+      - 1433:1433
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=mssql2020!
+      - MSSQL_PID=Express
+    volumes:
+      - c:/database/sqlserver/data:/var/opt/mssql/data
+      - c:/database/sqlserver/log:/var/opt/mssql/log
+      - c:/database/sqlserver/secrets:/var/opt/mssql/secrets

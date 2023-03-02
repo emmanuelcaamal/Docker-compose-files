@@ -1,0 +1,33 @@
+version: "3.9"
+services:
+  moviesapi:
+    image: emmanuelcaamal/moviesapi:alpine
+    container_name: moviesapi_compose
+    ports:
+      - "5000:80"
+    links:
+      - mongodb_server
+  mongodb_server:
+    image: mongo:latest
+    container_name: mongo_server
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=mongodb2020!
+    # volumes:
+    #   - c:/database/mongodb:/data/db
+    volumes: #Indica que volumenes va utilizar, definidos en volumes raiz.
+      - mongo-data:/data/db
+volumes: #Indicar todos los volumenes que van a usar los contenedores del docker compose
+  mongo-data:
+
+#docker entiende que estos contenedores se van a comunicar, y crea una red internaa automaticamente
+#para que puedan comunicarse
+
+#Volumenes
+#Anonimo: Solo indicas la ruta donde se montara, No se pueden referenciar por otro contenedor
+#Anfitrion o Host: Decides que carpeta montar y donde
+#Nombrado: Es como el anonimo, con referencia a otros contenedores
+
