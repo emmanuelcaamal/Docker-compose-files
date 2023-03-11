@@ -10,7 +10,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=mysql2020!
     volumes:
-      - c:/database/mysql/data:/var/lib/mysql
+      - ~/.databases/mysql/data:/var/lib/mysql
 
 #Al iniciar sesion en phpmyadmin usar nombre del contenedor como servidor
   adminer:
@@ -24,4 +24,10 @@ services:
       - PMA_HOST=mysql
     depends_on:
       - mysql
+
+
+
+#Add permissions to .databases directory
+#sudo chgrp -R 0 ~/.databases  
+#sudo chmod -R g=u ~/.databases
 

@@ -12,6 +12,13 @@ services:
       - SA_PASSWORD=mssql2020!
       - MSSQL_PID=Express
     volumes:
-      - c:/database/sqlserver/data:/var/opt/mssql/data
-      - c:/database/sqlserver/log:/var/opt/mssql/log
-      - c:/database/sqlserver/secrets:/var/opt/mssql/secrets
+      - ~/.databases/sqlserver/data:/var/opt/mssql/data
+      - ~/.databases/sqlserver/log:/var/opt/mssql/log
+      - ~/.databases/sqlserver/secrets:/var/opt/mssql/secrets
+
+
+
+
+#Add permissions to .databases directory
+#sudo chgrp -R 0 ~/.databases  
+#sudo chmod -R g=u ~/.databases
