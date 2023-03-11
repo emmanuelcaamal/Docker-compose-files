@@ -1,0 +1,39 @@
+version: '3.7'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq-server
+    ports:
+      - 5672:5672
+      - 15672:15672
+    networks:
+      - rabbitmq-net
+    
+networks:
+  rabbitmq-net:
+    driver: bridge
+
+
+#Access to bash 
+#sudo docker exec -it rabbitmq-server bash
+
+#List plugins
+#rabbitmq-plugins list
+
+#Rabbitmq management is more important plugin
+#When rabbitmq-management plugin is not enabled
+#rabbitmq-plugins enable rabbitmq-management
+
+
+#Create a new user
+#rabbitmqctl add_user {user_name} {your_password}
+
+#Set new user has adminitrator
+#rabbitmqctl set_user_tags {user_name} administrator
+
+#Set global permission to new user
+#rabbitmqctl set_permissions -p / {user_name} ".*" ".*" ".*"
+
+#Delete default user 
+#rabbitmqctl delete_user guest
