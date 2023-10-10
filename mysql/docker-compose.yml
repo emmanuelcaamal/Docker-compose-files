@@ -8,7 +8,7 @@ services:
     ports:
       - 3306:3306
     environment:
-      - MYSQL_ROOT_PASSWORD=mysql2020!
+      - MYSQL_ROOT_PASSWORD=mysql2020$
     volumes:
       - ~/.databases/mysql/data:/var/lib/mysql
 

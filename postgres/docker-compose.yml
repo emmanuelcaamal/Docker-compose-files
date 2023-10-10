@@ -10,7 +10,7 @@ services:
     environment:
       - DATABASE_HOST=127.0.0.1
       - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=pgsql2020!
+      - POSTGRES_PASSWORD=pgsql2020$
       #- POSTGRES_DATABASE=testdb01
     volumes:
       - ~/.databases/postgres/data:/var/lib/postgresql/data

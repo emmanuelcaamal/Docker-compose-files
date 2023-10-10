@@ -9,8 +9,8 @@ services:
       - 1433:1433
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=mssql2020!
-      - MSSQL_PID=Express
+      - SA_PASSWORD=Mssql2020$
+      - MSSQL_PID=Developer
     volumes:
       - ~/.databases/sqlserver/data:/var/opt/mssql/data
       - ~/.databases/sqlserver/log:/var/opt/mssql/log
@@ -18,6 +18,8 @@ services:
 
 
 
+#
+#docker compose -d up
 
 #Add permissions to .databases directory
 #sudo chgrp -R 0 ~/.databases  
