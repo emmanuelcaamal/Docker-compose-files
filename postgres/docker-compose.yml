@@ -1,19 +1,16 @@
-version: "3.8"
-
 services:
-  postgres-server: 
+  postgres-server:
     image: postgres:alpine
     container_name: "postgres_server"
     restart: always
     ports:
       - "5432:5432"
     environment:
-      - DATABASE_HOST=127.0.0.1
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=pgsql2020$
-      #- POSTGRES_DATABASE=testdb01
+      #- POSTGRES_DB=testdb01
     volumes:
-      - ~/.databases/postgres/data:/var/lib/postgresql/data
+      - ~/.databases/postgres/data:/var/lib/postgresql
 
 #Al iniciar sesion en pgadmin4 usar nombre del contenedor como servidor
   dbadmin:
@@ -24,6 +21,8 @@ services:
       - PGADMIN_DEFAULT_PASSWORD=pgsql2020!
     ports:
       - "5555:80"
+    volumes:
+      - ~/.databases/postgres/pgadmin:/var/lib/pgadmin
     depends_on:
       - postgres-server
 
